@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Modal, TextInput } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const WorkoutView = () => {
+  const navigation = useNavigation();
   const [showModal, setShowModal] = useState(false);
   const [splitName, setSplitName] = useState('');
   const [splits, setSplits] = useState([]);
@@ -17,7 +19,11 @@ const WorkoutView = () => {
   return (
     <ScrollView contentContainerStyle={styles.container} style={styles.scrollView}>
       {splits.map((split, index) => (
-        <TouchableOpacity key={index} style={styles.splitButton}>
+        <TouchableOpacity
+          key={index}
+          style={styles.splitButton}
+          onPress={() => navigation.navigate('workoutList', { splitName: split })}
+        >
           <Text style={styles.splitText}>{split}</Text>
         </TouchableOpacity>
       ))}
@@ -40,6 +46,7 @@ const WorkoutView = () => {
     </ScrollView>
   );
 };
+
 
 const styles = StyleSheet.create({
   scrollView: {
