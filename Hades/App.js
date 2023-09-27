@@ -39,9 +39,9 @@ const App = () => {
           },
         }}
       >
-        <Tab.Screen name="Fitness" component={WorkoutView} />
-        <Tab.Screen name="Nutrition" component={NutritionScreen} />
-        <Tab.Screen name="Wellness" component={WellnessScreen} />
+        <Tab.Screen name="Muscles" component={WorkoutView} />
+        <Tab.Screen name="Mind" component={NutritionScreen} />
+        <Tab.Screen name="Munchies" component={WellnessScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
